@@ -20,6 +20,6 @@ spec:
           backoff:
             maxDuration: 2m
         container:
-          image: docker/whalesayxxx
-          command: [ cowsay ]
-          args: [ "hello world" ]
+          image: alpine:latest
+          command: [ sh, -c ]
+          args: [ "echo intentional failure; exit 1" ]
