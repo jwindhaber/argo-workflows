@@ -1,9 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow                  # new type of k8s spec
 metadata:
-  generateName: hello-world-   # name of the workflow spec
-  annotations:
-    argocd.argoproj.io/hook: Sync
+  name: hello-world
+#  generateName: hello-world-   # name of the workflow spec
+#  annotations:
+#    argocd.argoproj.io/hook: Sync
 spec:
   entrypoint: whalesay          # invoke the whalesay template
   templates:
