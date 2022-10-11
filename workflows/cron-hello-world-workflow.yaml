@@ -13,6 +13,6 @@ spec:
     templates:
       - name: whalesay
         container:
-          image: docker/whalesay
+          image: docker/whalesayxxx
           command: [ cowsay ]
           args: [ "hello world" ]
