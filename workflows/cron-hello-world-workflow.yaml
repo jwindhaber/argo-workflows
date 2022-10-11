@@ -16,7 +16,7 @@ spec:
       - name: whalesay
         failFast: true
         retryStrategy:
-          retryPolicy: Never
+#          retryPolicy: Never
           backoff:
             maxDuration: 2m
         container:
