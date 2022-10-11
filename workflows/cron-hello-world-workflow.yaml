@@ -4,15 +4,16 @@ metadata:
   name: test-cron-wf
 spec:
   schedule: "* * * * *"
-  suspend: true
+  suspend: false
   concurrencyPolicy: "Allow"
   startingDeadlineSeconds: 0
   successfulJobsHistoryLimit: 15
   workflowSpec:
+    retryStrategy:
+      limit: "1"
     entrypoint: whalesay
     templates:
       - name: whalesay
-        restartPolicy: Never
         container:
           image: docker/whalesayxxx
           command: [ cowsay ]
