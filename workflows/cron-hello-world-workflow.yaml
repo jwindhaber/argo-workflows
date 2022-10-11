@@ -14,6 +14,11 @@ spec:
     entrypoint: whalesay
     templates:
       - name: whalesay
+        failFast: true
+        retryStrategy:
+          retryPolicy: Never
+          backoff:
+            maxDuration: 2m
         container:
           image: docker/whalesayxxx
           command: [ cowsay ]
