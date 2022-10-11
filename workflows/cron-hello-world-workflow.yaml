@@ -4,7 +4,7 @@ metadata:
   name: test-cron-wf
 spec:
   schedule: "* * * * *"
-  suspend: false
+  suspend: true
   concurrencyPolicy: "Allow"
   startingDeadlineSeconds: 0
   successfulJobsHistoryLimit: 15
