@@ -12,6 +12,7 @@ spec:
     entrypoint: whalesay
     templates:
       - name: whalesay
+        restartPolicy: Never
         container:
           image: docker/whalesayxxx
           command: [ cowsay ]
