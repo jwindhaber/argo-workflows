@@ -1,25 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: CronWorkflow
 metadata:
-  name: test-cron-wf
+  name: exit-workflow
 spec:
   schedule: "* * * * *"
-  suspend: false
-  concurrencyPolicy: "Allow"
+  suspend: true
+  concurrencyPolicy: "Forbid"
   startingDeadlineSeconds: 0
-  successfulJobsHistoryLimit: 15
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
   workflowSpec:
     retryStrategy:
       limit: "1"
+      retryPolicy: "Always"
     entrypoint: whalesay
     templates:
       - name: whalesay
         failFast: true
         retryStrategy:
-#          retryPolicy: Never
-          backoff:
-            maxDuration: 2m
+          limit: "1"
+          retryPolicy: "Always"
         container:
-          image: alpine:latest
+          image: alpineggg:latest
           command: [ sh, -c ]
           args: [ "echo intentional failure; exit 1" ]
